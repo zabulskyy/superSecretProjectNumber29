@@ -1,7 +1,7 @@
 # superSecretProjectNumber29
-### https://datasheets.maximintegrated.com/en/ds/DS3231.pdf page 11 pin adresses
+### https://datasheets.maximintegrated.com/en/ds/DS3231.pdf __page 11__ -> pin adresses
 
-### main.c in main while(1) loop: 
+### main.c in ```int main(void)```; ```while(1)``` loop: 
 ```
 	  printf("weekday: %i%i\n", (xBuffer[3]&(0xF<<4))>>4, xBuffer[3]&0xF);
 	  printf("%i%i : %i%i : %i%i\n\n",
