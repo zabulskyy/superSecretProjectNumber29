@@ -157,37 +157,11 @@ int main(void)
   uint8_t regn[]={0};
   uint8_t buf[16];
   int i = 1;
-
-  //uint8_t zero[] = {0};
-  //uint8_t seconds[] = {0 << 4 | 0};
-  //uint8_t minutes[] = {4 << 4 | 3};
-  //uint8_t hours[] =   {0 << 4 | 2};
-  //uint8_t days[] =    {2};
-
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 0, 1, /*value*/seconds, 1, 500);  // seconds
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 1, 1, /*value*/minutes, 1, 500);  // minutes
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 2, 1, /*value*/hours, 1, 500);    // hours
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 3, 1, /*value*/days, 1, 500);     // weekday
-
   while (1)
   {
 	  //HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, /*3*/2, 500);
 	  //printf("%i %i:%i %i\n",(xBuffer[0]&(0xF<<4))>>4 ,xBuffer[0]&0xF, xBuffer[1]&(0xF<<4),xBuffer[1]&0xF);
 	  //continue;
-
-
-	  /* HOW TO GET DATA: DOCUMENTATION
-	   * seconds:		xBuffer[0]&0xF
-	   * 10 seconds:	(xBuffer[0]&(0xF<<4))>>4
-	   *
-	   * minutes		xBuffer[1]&0xF
-	   * 10 minutes:	(xBuffer[1]&(0xF<<4))>>4
-	   *
-	   * hours:			xBuffer[2]&0xF
-	   * 10 hours:		(xBuffer[2]&(0xF<<4))>>4
-	   *
-	   * week (1-7):	xBuffer[3]&0xF
-	   */
 
 	  HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
 	  printf("weekday: %i%i\n", (xBuffer[3]&(0xF<<4))>>4, xBuffer[3]&0xF);

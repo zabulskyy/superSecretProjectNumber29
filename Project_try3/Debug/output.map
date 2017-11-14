@@ -4129,7 +4129,7 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_frame   0x0000264c       0x2c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15.0.201708311556/tools/compiler/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_aeabi_uldivmod.o)
  .debug_frame   0x00002678       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15.0.201708311556/tools/compiler/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_udivmoddi4.o)
 
-.debug_info     0x00000000    0x11000
+.debug_info     0x00000000    0x11037
  .debug_info    0x00000000      0xfc8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_info    0x00000fc8     0x18e1 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
  .debug_info    0x000028a9     0x10b8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
@@ -4139,11 +4139,11 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_info    0x0000a5bb     0x1169 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_info    0x0000b724      0xc9b Src/gpio.o
  .debug_info    0x0000c3bf     0x11c0 Src/i2c.o
- .debug_info    0x0000d57f     0x1747 Src/main.o
- .debug_info    0x0000ecc6      0xd00 Src/stm32f3xx_hal_msp.o
- .debug_info    0x0000f9c6      0x983 Src/stm32f3xx_it.o
- .debug_info    0x00010349      0xc34 Src/system_stm32f3xx.o
- .debug_info    0x00010f7d       0x83 startup/startup_stm32f303xc.o
+ .debug_info    0x0000d57f     0x177e Src/main.o
+ .debug_info    0x0000ecfd      0xd00 Src/stm32f3xx_hal_msp.o
+ .debug_info    0x0000f9fd      0x983 Src/stm32f3xx_it.o
+ .debug_info    0x00010380      0xc34 Src/system_stm32f3xx.o
+ .debug_info    0x00010fb4       0x83 startup/startup_stm32f303xc.o
 
 .debug_abbrev   0x00000000     0x2307
  .debug_abbrev  0x00000000      0x2d6 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -4305,7 +4305,7 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_line    0x00007de0      0x77a Src/system_stm32f3xx.o
  .debug_line    0x0000855a       0x7f startup/startup_stm32f303xc.o
 
-.debug_str      0x00000000    0x8be2e
+.debug_str      0x00000000    0x8be4e
  .debug_str     0x00000000    0x89cbd Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                               0x8a01c (size before relaxing)
  .debug_str     0x00089cbd      0x409 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
@@ -4324,13 +4324,13 @@ OUTPUT(Project_try3.elf elf32-littlearm)
                               0x898a9 (size before relaxing)
  .debug_str     0x0008bc91       0x42 Src/i2c.o
                               0x89dc1 (size before relaxing)
- .debug_str     0x0008bcd3       0xa4 Src/main.o
-                              0x8a4fc (size before relaxing)
- .debug_str     0x0008bd77       0x1b Src/stm32f3xx_hal_msp.o
+ .debug_str     0x0008bcd3       0xc4 Src/main.o
+                              0x8a51c (size before relaxing)
+ .debug_str     0x0008bd97       0x1b Src/stm32f3xx_hal_msp.o
                               0x89c52 (size before relaxing)
- .debug_str     0x0008bd92       0x38 Src/stm32f3xx_it.o
+ .debug_str     0x0008bdb2       0x38 Src/stm32f3xx_it.o
                               0x897c8 (size before relaxing)
- .debug_str     0x0008bdca       0x64 Src/system_stm32f3xx.o
+ .debug_str     0x0008bdea       0x64 Src/system_stm32f3xx.o
                               0x8988c (size before relaxing)
 
 .comment        0x00000000       0x7f
