@@ -7,10 +7,25 @@
 ## code:
 main.c in ```int main(void)```; ```while(1)``` loop: 
 ```
-printf("weekday: %i%i\n", (xBuffer[3]&(0xF<<4))>>4, xBuffer[3]&0xF);
-printf("%i%i : %i%i : %i%i\n\n",
-      (xBuffer[2]&(0xF<<4))>>4 ,xBuffer[2]&0xF, 
-      (xBuffer[1]&(0xF<<4))>>4,xBuffer[1]&0xF, 
-      (xBuffer[0]&(0xF<<4))>>4,xBuffer[0]&0xF);
-      continue;
+HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
+printf("weekday: %i\n", weekday);
+printf("%i%i : %i%i : %i%i\n\n", dhrs, hrs, dmin, min, dsec, sec);
+continue;
+```
+usage of data:
+``` 
+weekday    //  weekday in range 1-7
+dhrs, hrs  //  actual hour = dhrs*10 + hrs
+dmin, min  //  actual minutes = dmin*10 + min
+dsec, sec  //  actual seconds = dsec*10 + sec
+```
+if you are really interested, these lines contain actual addresses in RTC:
+```
+sec 		xBuffer[0]&0xF
+dsec 		(xBuffer[0]&(0xF<<4))>>4
+min 		xBuffer[1]&0xF
+dmin 		(xBuffer[1]&(0xF<<4))>>4
+hrs 		xBuffer[2]&0xF
+dhrs 		(xBuffer[2]&(0xF<<4))>>4
+weekday 	xBuffer[3]&0xF
 ```
