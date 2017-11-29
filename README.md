@@ -24,11 +24,11 @@ usage of data:
 
 if you are really interested, these lines contain actual addresses in RTC:
 ```
-sec       ==		xBuffer[0]&0xF
-dsec      ==		(xBuffer[0]&(0xF<<4))>>4
-min       ==		xBuffer[1]&0xF
-dmin      == 		(xBuffer[1]&(0xF<<4))>>4
-hrs       == 		xBuffer[2]&0xF
-dhrs      == 		(xBuffer[2]&(0xF<<4))>>4
+sec       ==	xBuffer[0]&0xF
+dsec      ==	(xBuffer[0]&(0xF<<4))>>4
+min       ==	xBuffer[1]&0xF
+dmin      == 	(xBuffer[1]&(0xF<<4))>>4
+hrs       == 	xBuffer[2]&0xF
+dhrs      == 	(xBuffer[2]&(0xF<<4))>>4
 weekday   ==      xBuffer[3]&0xF
 ```
