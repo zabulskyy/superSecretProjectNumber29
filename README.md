@@ -13,12 +13,11 @@ printf("%i%i : %i%i : %i%i\n\n", dhrs, hrs, dmin, min, dsec, sec);
 continue;
 ```
 usage of data:
-``` 
-weekday    //  weekday in range 1-7
-dhrs, hrs  //  actual hour = dhrs*10 + hrs
-dmin, min  //  actual minutes = dmin*10 + min
-dsec, sec  //  actual seconds = dsec*10 + sec
-```
+``` weekday    ```  weekday in range 1-7
+``` dhrs, hrs  ```  actual hour = dhrs*10 + hrs
+``` dmin, min  ```  actual minutes = dmin*10 + min
+``` dsec, sec  ```  actual seconds = dsec*10 + sec
+
 if you are really interested, these lines contain actual addresses in RTC:
 ```
 sec 		xBuffer[0]&0xF
