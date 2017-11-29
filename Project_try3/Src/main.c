@@ -41,9 +41,21 @@
 #include "i2c.h"
 #include "gpio.h"
 
+
 /* USER CODE BEGIN Includes */
+
+
 #define I2C1_DEVICE_ADDRESS      0x68
 uint8_t xBuffer[16];
+
+#define seconds 	xBuffer[0]&0xF
+#define dseconds 	(xBuffer[0]&(0xF<<4))>>4
+#define minutes 	xBuffer[1]&0xF
+#define	dminutes 	(xBuffer[1]&(0xF<<4))>>4
+#define hours 		xBuffer[2]&0xF
+#define dhours 		(xBuffer[2]&(0xF<<4))>>4
+#define weekday 	xBuffer[3]&0xF
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -154,8 +166,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t regn[]={0};
-  uint8_t buf[16];
+  //uint8_t regn[]={0};
+  //uint8_t buf[16];
   int i = 1;
 
   //uint8_t zero[] = {0};
@@ -180,18 +192,19 @@ int main(void)
 	   * seconds:		xBuffer[0]&0xF
 	   * 10 seconds:	(xBuffer[0]&(0xF<<4))>>4
 	   *
-	   * minutes		xBuffer[1]&0xF
+	   * minutes:		xBuffer[1]&0xF
 	   * 10 minutes:	(xBuffer[1]&(0xF<<4))>>4
 	   *
 	   * hours:			xBuffer[2]&0xF
 	   * 10 hours:		(xBuffer[2]&(0xF<<4))>>4
 	   *
-	   * week (1-7):	xBuffer[3]&0xF
+	   * weekday (1-7):	xBuffer[3]&0xF
 	   */
 
-	  HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
-	  printf("weekday: %i%i\n", (xBuffer[3]&(0xF<<4))>>4, xBuffer[3]&0xF);
-	  printf("%i%i : %i%i : %i%i\n\n",(xBuffer[2]&(0xF<<4))>>4 ,xBuffer[2]&0xF, (xBuffer[1]&(0xF<<4))>>4,xBuffer[1]&0xF, (xBuffer[0]&(0xF<<4))>>4,xBuffer[0]&0xF);
+	 // HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
+	  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
+	  printf("weekday: %i\n", weekday);
+	  printf("%i%i : %i%i : %i%i\n\n", dhours, hours, dminutes, minutes, dseconds, seconds);
 	  continue;
 
 

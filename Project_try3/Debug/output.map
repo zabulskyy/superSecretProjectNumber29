@@ -3406,10 +3406,10 @@ LOAD c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15
                 0x080032d4                _Error_Handler
  *fill*         0x080032d6        0x2 
  .text.SystemClock_Config
-                0x080032d8       0x9c Src/main.o
+                0x080032d8       0xa0 Src/main.o
                 0x080032d8                SystemClock_Config
- .text.main     0x08003374       0x78 Src/main.o
-                0x08003374                main
+ .text.main     0x08003378       0x74 Src/main.o
+                0x08003378                main
  .text.assert_failed
                 0x080033ec        0x2 Src/main.o
                 0x080033ec                assert_failed
@@ -4129,7 +4129,7 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_frame   0x0000264c       0x2c c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15.0.201708311556/tools/compiler/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_aeabi_uldivmod.o)
  .debug_frame   0x00002678       0x34 c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.15.0.201708311556/tools/compiler/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard\libgcc.a(_udivmoddi4.o)
 
-.debug_info     0x00000000    0x11037
+.debug_info     0x00000000    0x10fd2
  .debug_info    0x00000000      0xfc8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_info    0x00000fc8     0x18e1 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
  .debug_info    0x000028a9     0x10b8 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
@@ -4139,13 +4139,13 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_info    0x0000a5bb     0x1169 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_info    0x0000b724      0xc9b Src/gpio.o
  .debug_info    0x0000c3bf     0x11c0 Src/i2c.o
- .debug_info    0x0000d57f     0x177e Src/main.o
- .debug_info    0x0000ecfd      0xd00 Src/stm32f3xx_hal_msp.o
- .debug_info    0x0000f9fd      0x983 Src/stm32f3xx_it.o
- .debug_info    0x00010380      0xc34 Src/system_stm32f3xx.o
- .debug_info    0x00010fb4       0x83 startup/startup_stm32f303xc.o
+ .debug_info    0x0000d57f     0x1719 Src/main.o
+ .debug_info    0x0000ec98      0xd00 Src/stm32f3xx_hal_msp.o
+ .debug_info    0x0000f998      0x983 Src/stm32f3xx_it.o
+ .debug_info    0x0001031b      0xc34 Src/system_stm32f3xx.o
+ .debug_info    0x00010f4f       0x83 startup/startup_stm32f303xc.o
 
-.debug_abbrev   0x00000000     0x2307
+.debug_abbrev   0x00000000     0x22fa
  .debug_abbrev  0x00000000      0x2d6 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_abbrev  0x000002d6      0x3b3 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
  .debug_abbrev  0x00000689      0x2dc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o
@@ -4155,11 +4155,11 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_abbrev  0x000011f5      0x35a Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_abbrev  0x0000154f      0x229 Src/gpio.o
  .debug_abbrev  0x00001778      0x256 Src/i2c.o
- .debug_abbrev  0x000019ce      0x321 Src/main.o
- .debug_abbrev  0x00001cef      0x232 Src/stm32f3xx_hal_msp.o
- .debug_abbrev  0x00001f21      0x1cf Src/stm32f3xx_it.o
- .debug_abbrev  0x000020f0      0x205 Src/system_stm32f3xx.o
- .debug_abbrev  0x000022f5       0x12 startup/startup_stm32f303xc.o
+ .debug_abbrev  0x000019ce      0x314 Src/main.o
+ .debug_abbrev  0x00001ce2      0x232 Src/stm32f3xx_hal_msp.o
+ .debug_abbrev  0x00001f14      0x1cf Src/stm32f3xx_it.o
+ .debug_abbrev  0x000020e3      0x205 Src/system_stm32f3xx.o
+ .debug_abbrev  0x000022e8       0x12 startup/startup_stm32f303xc.o
 
 .debug_loc      0x00000000     0x559e
  .debug_loc     0x00000000       0x69 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -4219,7 +4219,7 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_ranges  0x000005f0       0x18 Src/system_stm32f3xx.o
  .debug_ranges  0x00000608       0x20 startup/startup_stm32f303xc.o
 
-.debug_macro    0x00000000    0x19d50
+.debug_macro    0x00000000    0x19d7a
  .debug_macro   0x00000000      0x310 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_macro   0x00000310      0x8bc Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
  .debug_macro   0x00000bcc      0x16c Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -4284,10 +4284,10 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_macro   0x00018890      0x2ec Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o
  .debug_macro   0x00018b7c      0x2f6 Src/gpio.o
  .debug_macro   0x00018e72      0x300 Src/i2c.o
- .debug_macro   0x00019172      0x30a Src/main.o
- .debug_macro   0x0001947c      0x2ec Src/stm32f3xx_hal_msp.o
- .debug_macro   0x00019768      0x2f6 Src/stm32f3xx_it.o
- .debug_macro   0x00019a5e      0x2f2 Src/system_stm32f3xx.o
+ .debug_macro   0x00019172      0x334 Src/main.o
+ .debug_macro   0x000194a6      0x2ec Src/stm32f3xx_hal_msp.o
+ .debug_macro   0x00019792      0x2f6 Src/stm32f3xx_it.o
+ .debug_macro   0x00019a88      0x2f2 Src/system_stm32f3xx.o
 
 .debug_line     0x00000000     0x85d9
  .debug_line    0x00000000      0x8de Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
@@ -4305,7 +4305,7 @@ OUTPUT(Project_try3.elf elf32-littlearm)
  .debug_line    0x00007de0      0x77a Src/system_stm32f3xx.o
  .debug_line    0x0000855a       0x7f startup/startup_stm32f303xc.o
 
-.debug_str      0x00000000    0x8be4e
+.debug_str      0x00000000    0x8bee7
  .debug_str     0x00000000    0x89cbd Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o
                               0x8a01c (size before relaxing)
  .debug_str     0x00089cbd      0x409 Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o
@@ -4324,13 +4324,13 @@ OUTPUT(Project_try3.elf elf32-littlearm)
                               0x898a9 (size before relaxing)
  .debug_str     0x0008bc91       0x42 Src/i2c.o
                               0x89dc1 (size before relaxing)
- .debug_str     0x0008bcd3       0xc4 Src/main.o
-                              0x8a51c (size before relaxing)
- .debug_str     0x0008bd97       0x1b Src/stm32f3xx_hal_msp.o
+ .debug_str     0x0008bcd3      0x15d Src/main.o
+                              0x8a5b5 (size before relaxing)
+ .debug_str     0x0008be30       0x1b Src/stm32f3xx_hal_msp.o
                               0x89c52 (size before relaxing)
- .debug_str     0x0008bdb2       0x38 Src/stm32f3xx_it.o
+ .debug_str     0x0008be4b       0x38 Src/stm32f3xx_it.o
                               0x897c8 (size before relaxing)
- .debug_str     0x0008bdea       0x64 Src/system_stm32f3xx.o
+ .debug_str     0x0008be83       0x64 Src/system_stm32f3xx.o
                               0x8988c (size before relaxing)
 
 .comment        0x00000000       0x7f
