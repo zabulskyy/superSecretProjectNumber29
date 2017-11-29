@@ -1,4 +1,4 @@
-# superSecretProjectNumber29
+#  superSecretProjectNumber29
 
 ## info:
 * https://datasheets.maximintegrated.com/en/ds/DS3231.pdf __page 11__ -> pin adresses
@@ -24,11 +24,11 @@ usage of data:
 
 if you are really interested, these lines contain actual addresses in RTC:
 ```
-sec     ==		xBuffer[0]&0xF
-dsec    ==		(xBuffer[0]&(0xF<<4))>>4
-min     ==		xBuffer[1]&0xF
-dmin    == 		(xBuffer[1]&(0xF<<4))>>4
-hrs     == 		xBuffer[2]&0xF
-dhrs    == 		(xBuffer[2]&(0xF<<4))>>4
-weekday == 	  xBuffer[3]&0xF
+sec       ==		xBuffer[0]&0xF
+dsec      ==		(xBuffer[0]&(0xF<<4))>>4
+min       ==		xBuffer[1]&0xF
+dmin      == 		(xBuffer[1]&(0xF<<4))>>4
+hrs       == 		xBuffer[2]&0xF
+dhrs      == 		(xBuffer[2]&(0xF<<4))>>4
+weekday   == 	  xBuffer[3]&0xF
 ```
