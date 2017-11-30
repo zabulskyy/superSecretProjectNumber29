@@ -1,9 +1,12 @@
- #  superSecretProjectNumber29
+#Smart alarm on STM32 with RTC and...
 
 ## info:
 * https://datasheets.maximintegrated.com/en/ds/DS3231.pdf __page 11__ -> pin adresses
 
-
+# RTC
+## pins:
+* SCL -> PB6
+* SDA -> PB7
 ## code:
 main.c in ```int main(void)```; ```while(1)``` loop: 
 ```
