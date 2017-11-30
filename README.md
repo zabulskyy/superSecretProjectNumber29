@@ -1,7 +1,9 @@
-#Smart alarm on STM32 with RTC and...
+# Smart alarm on STM32 with RTC and...
 
 ## info:
 * https://datasheets.maximintegrated.com/en/ds/DS3231.pdf __page 11__ -> pin adresses
+
+
 
 # RTC
 ## pins:
