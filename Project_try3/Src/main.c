@@ -48,13 +48,13 @@
 #define I2C1_DEVICE_ADDRESS      0x68
 uint8_t xBuffer[16];
 
-#define seconds 	xBuffer[0]&0xF
-#define dseconds 	(xBuffer[0]&(0xF<<4))>>4
-#define minutes 	xBuffer[1]&0xF
-#define	dminutes 	(xBuffer[1]&(0xF<<4))>>4
-#define hours 		xBuffer[2]&0xF
-#define dhours 		(xBuffer[2]&(0xF<<4))>>4
-#define weekday 	xBuffer[3]&0xF
+#define read_sec 		xBuffer[0]&0xF
+#define read_dsec 		(xBuffer[0]&(0xF<<4))>>4
+#define read_min 		xBuffer[1]&0xF
+#define	read_dmin 		(xBuffer[1]&(0xF<<4))>>4
+#define read_hrs 		xBuffer[2]&0xF
+#define read_dhrs 		(xBuffer[2]&(0xF<<4))>>4
+#define read_day	 	xBuffer[3]&0xF
 
 /* USER CODE END Includes */
 
@@ -170,24 +170,63 @@ int main(void)
   //uint8_t buf[16];
   int i = 1;
 
-  //uint8_t zero[] = {0};
-  //uint8_t seconds[] = {0 << 4 | 0};
-  //uint8_t minutes[] = {4 << 4 | 3};
-  //uint8_t hours[] =   {0 << 4 | 2};
-  //uint8_t days[] =    {2};
+  /*configure correct time*/
+  /*
+   * uint8_t zero[] = {0};
+   * uint8_t seconds[] = {0 << 4 | 0};
+   * uint8_t minutes[] = {4 << 4 | 3};
+   * uint8_t hours[] =   {0 << 4 | 2};
+   * uint8_t days[] =    {2};
 
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 0, 1, /*value*/seconds, 1, 500);  // seconds
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 1, 1, /*value*/minutes, 1, 500);  // minutes
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 2, 1, /*value*/hours, 1, 500);    // hours
-  //HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 3, 1, /*value*/days, 1, 500);     // weekday
+   * HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 0, 1, seconds, 1, 500);  // seconds
+   * HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 1, 1, minutes, 1, 500);  // minutes
+   * HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 2, 1, hours, 1, 500);    // hours
+   * HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 3, 1, days, 1, 500);     // weekday
+  **/
+
+  /*setup alarm data*/
+
+  /*****************/
+  /*write here data you want to write to alarm*/
+  int alarm_day = 1;
+
+  int alarm_dhrs = 0;
+  int alarm_hrs = 7;
+
+  int alarm_dmin = 3;
+  int alarm_min = 0;
+  /*****************/
+
+  uint8_t zero[] =      {0};
+  uint8_t alarm_seconds[] =   {0 << 4 			| 0 		| 0 << 7};
+  uint8_t alarm_minutes[] =   {alarm_dmin << 4 	| alarm_min | 0 << 7};
+  uint8_t alarm_hours[] =     {alarm_dhrs << 4 	| alarm_hrs | 0 << 7};
+  uint8_t alarm_days[] =      {2};
+  uint8_t alarm_week_day[] =  {1 << 6 | alarm_day | 0 << 7};
+
+  HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 7,   1, alarm_seconds,  1, 500);  // seconds
+  HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 8,   1, alarm_minutes,  1, 500);  // minutes
+  HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 9,   1, alarm_hours,    1, 500);    // hours
+  HAL_I2C_Mem_Write(&hi2c1, 0x68*2, 0xA, 1, alarm_week_day, 1, 500);     // weekday
+
+  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 0xB, 500);
+  printf("\nalarm will sound at: \n");
+  printf("weekday: %i\n", xBuffer[0xA]&0xF);
+  printf("%i%i : %i%i : %i%i\n\n", (xBuffer[9]&(0xF<<4))>>4, xBuffer[9]&0xF, (xBuffer[8]&(0xF<<4))>>4, xBuffer[8]&0xF, (xBuffer[7]&(0xF<<4))>>4, xBuffer[7]&0xF);
+  printf("-----\n");
 
   while (1)
   {
-	  //HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, /*3*/2, 500);
-	  //printf("%i %i:%i %i\n",(xBuffer[0]&(0xF<<4))>>4 ,xBuffer[0]&0xF, xBuffer[1]&(0xF<<4),xBuffer[1]&0xF);
-	  //continue;
 
 
+	 // HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
+
+	  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
+	  printf("weekday: %i\n", read_day);
+	  printf("%i%i : %i%i : %i%i\n\n", read_dhrs, read_hrs, read_dmin, read_min, read_dsec, read_sec);
+	  continue;
+
+	  /*OUTDATED*/
 	  /* HOW TO GET DATA: DOCUMENTATION
 	   * seconds:		xBuffer[0]&0xF
 	   * 10 seconds:	(xBuffer[0]&(0xF<<4))>>4
@@ -200,17 +239,6 @@ int main(void)
 	   *
 	   * weekday (1-7):	xBuffer[3]&0xF
 	   */
-
-	 // HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
-	  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
-	  printf("weekday: %i\n", weekday);
-	  printf("%i%i : %i%i : %i%i\n\n", dhours, hours, dminutes, minutes, dseconds, seconds);
-	  continue;
-
-
-
-
-
 
 	  // first set the register pointer to the register wanted to be read
 	  //HAL_StatusTypeDef res1 = HAL_I2C_Master_Transmit(&hi2c1, 0x68, regn, 1, 100);  // note the & operator which gives us the address of the register_pointer variable
