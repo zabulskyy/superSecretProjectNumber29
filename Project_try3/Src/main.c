@@ -219,9 +219,21 @@ int main(void)
   {
 	 // HAL_StatusTypeDef res = HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
 
-	  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 4, 500);
 	  printf("weekday: %i\n", read_day);
 	  printf("%i%i : %i%i : %i%i\n\n", read_dhrs, read_hrs, read_dmin, read_min, read_dsec, read_sec);
+
+	  HAL_I2C_Mem_Read(&hi2c1, 0x68*2, 0, 1, xBuffer, 0x10, 500);
+	  while (!xBuffer[0xF]&0xF){}  // read pin which tells us about alarm activation
+
+	  printf("-----\n");
+	  printf("ALARM ALERT!!!\n");
+	  printf("-----\n");
+	  printf("alarm data:\n");
+	  printf("weekday: %i\n", xBuffer[0xA]&0xF);
+	  printf("%i%i : %i%i : %i%i\n\n", (xBuffer[9]&(0xF<<4))>>4, xBuffer[9]&0xF, (xBuffer[8]&(0xF<<4))>>4, xBuffer[8]&0xF, (xBuffer[7]&(0xF<<4))>>4, xBuffer[7]&0xF);
+	  printf("-----\n");
+
+
 	  continue;
 
 	  /*OUTDATED*/
